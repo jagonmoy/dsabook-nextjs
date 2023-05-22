@@ -8,9 +8,7 @@ interface Props {
 }
 
 const Nav: React.FC<Props> = () => {
-    // const isUserLoggedIn : boolean = useAppSelector(selectUserState) ;
-    const anything = useAppSelector((state) => state.user.selectUserState)
-    const isUserLoggedIn = true ;
+    const isUserLoggedIn = useAppSelector(selectUserState)
     return (
         <nav className='flex-between w-full mb-16 pt-3'>
             <Link href='/' className='flex gap-2 flex-center'>
@@ -38,11 +36,13 @@ const Nav: React.FC<Props> = () => {
                             className='rounded-full'
                         />
                     </Link>
-
                 </div>
             ):(
-              <>
-              </>
+              <div className='sm:flex hidden'>
+               <Link href='/sign-in'><button type='button' className="outline_btn">
+                        Sign in
+                </button></Link>
+              </div>
             )}
         </div>
         </nav>

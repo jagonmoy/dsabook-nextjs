@@ -29,7 +29,7 @@ export const {userAuth} = usersSlice.actions;
 
 export const selectUsername = (state: RootState) => state.user.username
 export const selectUserToken = (state: RootState) => state.user.accessToken
-export const selectUserState = (state: RootState) => state.user.isUserLoggedin
+export const selectUserState = (state: RootState) => state.user.isUserLoggedIn
 export const selectUser = (state: RootState) => state.user
 
 export default usersSlice.reducer;
