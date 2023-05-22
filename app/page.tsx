@@ -1,10 +1,13 @@
 import Feed from '@components/Feed'
 import Link from 'next/link'
+import { getAllBlogs } from '@services/blogs'
 
 interface Props {
 }
 
-const Home: React.FC<Props> = () => {
+export default async function Home() {
+
+    const blogs : any = await getAllBlogs();
     return (
         <section className='w-full flex-center flex-col'>
             <h1 className="head_text text-center">
@@ -19,8 +22,7 @@ const Home: React.FC<Props> = () => {
                 className="create_blog_btn">
                 CREATE A NEW BLOG
             </Link>
-            <Feed />
+            <Feed blogs = {blogs}/>
         </section>
     );
 }
-export default Home;
