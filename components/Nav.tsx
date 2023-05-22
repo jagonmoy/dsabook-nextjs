@@ -1,10 +1,15 @@
+'use client'
 import Link from 'next/link'
 import Image from 'next/image'
+import { selectUserState } from '@redux/slices/userSlice'
+import { useAppSelector } from '@redux/hooks'
 
 interface Props {
 }
 
 const Nav: React.FC<Props> = () => {
+    // const isUserLoggedIn : boolean = useAppSelector(selectUserState) ;
+    const anything = useAppSelector((state) => state.user.selectUserState)
     const isUserLoggedIn = true ;
     return (
         <nav className='flex-between w-full mb-16 pt-3'>

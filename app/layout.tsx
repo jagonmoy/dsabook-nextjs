@@ -1,6 +1,7 @@
 import '@styles/globals.css'
 import '@components/Nav'
 import Nav from '@components/Nav'
+import { Providers } from '@redux/provider'
 
 interface Props {
     children: React.ReactNode
@@ -23,8 +24,10 @@ const RootLayout : React.FC<Props> = ({children}) => {
                 <div className = 'gradient' />
             </div>
             <main className ="app" >
-                <Nav/>
-                {children}
+                <Providers>
+                    <Nav/>
+                {   children}
+                </Providers>
             </main>
         </body>
 
