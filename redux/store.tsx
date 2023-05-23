@@ -1,20 +1,20 @@
 import { configureStore,combineReducers,PreloadedState } from '@reduxjs/toolkit'
 import userReducer from  './slices/userSlice'
-// import { apiSlice } from '../slices/apiSlice'
+import { apiSlice } from './slices/apiSlice'
 
 const rootReducer : any = combineReducers({
   user: userReducer,
-//   [apiSlice.reducerPath]: apiSlice.reducer
+  [apiSlice.reducerPath]: apiSlice.reducer
 })
 
 export function setupStore(preloadedState?: PreloadedState<RootState>) {
   return configureStore({
     reducer: rootReducer,
     preloadedState,
-    // middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-    //   immutableCheck: false,
-    //   serializablecheck: false,
-    // }).concat(apiSlice.middleware)
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+      immutableCheck: false,
+      serializablecheck: false,
+    }).concat(apiSlice.middleware)
   })
 }
 

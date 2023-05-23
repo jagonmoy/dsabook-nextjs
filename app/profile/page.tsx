@@ -1,7 +1,7 @@
 interface Props {
 }
 
-export const Profile : React.FC<Props> = () => {
+const Profile : React.FC<Props> = () => {
   return (
     <div>
       This is a profile page
