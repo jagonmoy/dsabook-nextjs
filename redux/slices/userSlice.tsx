@@ -4,28 +4,29 @@ import type { RootState } from '../store';
 export interface UserState{
     username : string,
     accessToken : string,
-    loggedIn: boolean,
+    loggedIn: string,
 }
 
 const initialState: UserState = { 
   username : '',
   accessToken: '',
-  loggedIn: false,
+  loggedIn: '',
 };
 
 const usersSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    userAuth(state, action: PayloadAction<UserState>) {
-      const {username,accessToken} = action.payload;
+    userState(state, action: PayloadAction<UserState>) {
+      const {username,accessToken,loggedIn} = action.payload;
       state.username = username ;
       state.accessToken = accessToken ;
+      state.loggedIn = loggedIn;
     }
   },
 });
 
-export const {userAuth} = usersSlice.actions;
+export const {userState} = usersSlice.actions;
 
 export const selectUsername = (state: RootState) => state.user.username
 export const selectUserToken = (state: RootState) => state.user.accessToken

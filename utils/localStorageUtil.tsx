@@ -8,7 +8,7 @@ export const getLocalStorageusername = () => {
 export const getUserStateFromLocalStorage = () => {
     if (typeof window !== 'undefined') {
       const username = localStorage.getItem('loggedIn');
-      if(username) return true ;
+      if(username === 'Yes') return true ;
       else return false;
     }
     return false;

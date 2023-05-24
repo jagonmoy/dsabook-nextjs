@@ -27,7 +27,7 @@ export const apiSlice = createApi({
     }),
     invalidatesTags: ['Blogs']
     }),
-    editBlog: builder.mutation({
+    updateBlog: builder.mutation({
       query: ({blogHeadline,blogDescription,token,id}) => ({
         url: `/blogs/${id}` ,
         method: 'PATCH' ,
@@ -70,9 +70,9 @@ export const apiSlice = createApi({
 
 export const { 
      useGetAllBlogsQuery,
-//   useGetBlogQuery, 
+     useGetBlogQuery, 
 //   useAddNewUserMutation, 
-//   useAuthUserMutation, 
+     useAuthUserMutation, 
 //   useCreateBlogMutation,
 //   useEditBlogMutation,
 //   useDeleteBlogMutation,

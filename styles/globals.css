@@ -171,3 +171,68 @@
 .flex-between {
   @apply flex justify-between items-center;
 }
+
+
+/* delete modal */
+
+.delete_icon {
+  @apply h-8 w-8 text-black hover:text-orange-500 mr-4
+}
+.delete_modal_div_1 {
+  @apply flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none backdrop-blur-sm
+}
+.delete_modal_div_2 {
+  @apply relative bg-white rounded-lg shadow dark:bg-gray-700
+}
+.delete_modal_div_3 {
+  @apply p-6 text-center
+}
+.delete_icon{
+  @apply h-8 w-8 text-black
+}
+.delete_warning_text {
+  @apply mb-5 text-lg font-normal text-gray-500 dark:text-gray-400
+}
+
+.delete_confirm_button {
+  @apply text-white bg-orange-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2
+}
+
+.delete_reject_button {
+  @apply text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600
+}
+
+/* sign in  */
+
+.root_div_sign_in {
+  @apply flex min-h-full flex-col justify-center px-6 py-12 lg:px-8
+}
+.div_sign_in_text {
+  @apply sm:mx-auto sm:w-full sm:max-w-sm
+}
+.sign_in_text {
+  @apply mt-10 text-center text-2xl text-orange-500 font-bold leading-9 tracking-tight 
+}
+
+.form_div {
+  @apply mt-10 sm:mx-auto sm:w-full sm:max-w-sm
+}
+
+.label {
+  @apply block text-sm font-medium leading-6 text-gray-900
+}
+.input_field {
+  @apply block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pl-2
+}
+
+.auth_button {
+  @apply flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600
+}
+
+.redirect_paragraph {
+  @apply mt-10 text-center text-sm text-gray-500
+}
+.redirect_text {
+
+  @apply font-semibold leading-6 text-orange-400 hover:text-orange-500
+}
