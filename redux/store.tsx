@@ -1,4 +1,5 @@
-import { configureStore,combineReducers,PreloadedState } from '@reduxjs/toolkit'
+'use client'
+import { configureStore,combineReducers} from '@reduxjs/toolkit'
 import userReducer from  './slices/userSlice'
 import { apiSlice } from './slices/apiSlice'
 
@@ -7,17 +8,13 @@ const rootReducer : any = combineReducers({
   [apiSlice.reducerPath]: apiSlice.reducer
 })
 
-export function setupStore(preloadedState?: PreloadedState<RootState>) {
-  return configureStore({
+export const store =  configureStore({
     reducer: rootReducer,
-    preloadedState,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
       immutableCheck: false,
       serializablecheck: false,
     }).concat(apiSlice.middleware)
-  })
-}
+})
 
-export type RootState = ReturnType<typeof rootReducer>
-export type AppStore = ReturnType<typeof setupStore>
-export type AppDispatch = AppStore['dispatch']
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

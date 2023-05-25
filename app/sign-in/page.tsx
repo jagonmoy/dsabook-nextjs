@@ -23,11 +23,11 @@ const SignIn = () => {
         accessToken: response.accessToken,
         loggedIn: 'Yes'
       }))
-      localStorage.setItem('username',username);
+      localStorage.setItem('loggedIn','Yes');
       router.push('/')
     }
     catch (error: any) {
-      console.log(error.data)
+      console.log('Error')
     }
   }
   return (

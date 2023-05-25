@@ -1,3 +1,4 @@
+'use client'
 import { fetchBaseQuery } from '@reduxjs/toolkit/query'
 import type {
   BaseQueryFn,
@@ -5,15 +6,12 @@ import type {
   FetchBaseQueryError,
 } from '@reduxjs/toolkit/query'
 import { Mutex } from 'async-mutex'
-import { userAuth } from './userSlice'
+import { userState } from './userSlice'
 import { RootState } from '@redux/store'
 
 // create a new mutex
 const mutex = new Mutex()
-let backendBaseUrl ;
-
-if(process.env.REACT_APP_ENV === 'production') backendBaseUrl = process.env.REACT_APP_BACKEND_URL;
-else backendBaseUrl = process.env.REACT_APP_BACKEND_TEST_URL;
+let backendBaseUrl = 'https://dsabook.onrender.com/api'
 
 const baseQuery = fetchBaseQuery({
     baseUrl: backendBaseUrl,
@@ -52,18 +50,18 @@ export const baseQueryWithReauth: BaseQueryFn<
           );
         if (refreshResult.data) {
             const {accessToken} : any = refreshResult.data
-            api.dispatch(userAuth({
+            api.dispatch(userState({
                 username: localStorage.getItem('username')?.toString() || '',
                 accessToken: accessToken,
-                loggedIn: true
+                loggedIn: "Yes"
             }))
           // retry the initial query
           result = await baseQuery(args, api, extraOptions)
         } else {
-          api.dispatch(userAuth({
+          api.dispatch(userState({
             username: '',
             accessToken: '',
-            loggedIn: false
+            loggedIn: ''
           }))
         }
       } finally {

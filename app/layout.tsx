@@ -1,9 +1,7 @@
 import '@styles/globals.css'
 import '@components/Nav'
 import Nav from '@components/Nav'
-import { Provider } from 'react-redux'
 import { Providers } from '@redux/provider'
-import { setupStore } from '@redux/store'
 
 interface Props {
     children: React.ReactNode
@@ -26,8 +24,10 @@ const RootLayout : React.FC<Props> = ({children}) => {
             </div>
             <main className="app">
                 <Providers>
-                    <Nav />
-                    {children}
+                    <>
+                        <Nav />
+                        {children}
+                    </>
                 </Providers>
             </main>
         </body>

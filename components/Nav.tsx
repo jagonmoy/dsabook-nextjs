@@ -52,8 +52,6 @@ const Nav: React.FC = () => {
     let isUserLoggedIn ;
     useEffect(()=>{
         isUserLoggedIn = getUserStateFromLocalStorage();
-        console.log("inside use effect")
-        console.log(isUserLoggedIn)
     },[isUserLoggedIn]) 
      
     return (

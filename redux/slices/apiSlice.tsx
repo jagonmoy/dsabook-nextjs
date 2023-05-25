@@ -1,12 +1,11 @@
+'use client'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 import { baseQueryWithReauth } from './customBaseQuery'
 
 export const apiSlice = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({
-    baseUrl: "https://dsabook.onrender.com/api",
-  }),
+  baseQuery: baseQueryWithReauth,
   tagTypes: ['Blogs'],
   endpoints: builder => ({
     getAllBlogs: builder.query({
