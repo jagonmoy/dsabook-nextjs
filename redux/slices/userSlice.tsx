@@ -11,7 +11,7 @@ export interface UserState{
 const initialState: UserState = { 
   username : '',
   accessToken: '',
-  loggedIn: '',
+  loggedIn: typeof window !== 'undefined' ? (localStorage.getItem('loggedIn') || 'kiki') : 'kichu',
 };
 
 const usersSlice = createSlice({

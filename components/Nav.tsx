@@ -3,6 +3,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getUserStateFromLocalStorage } from '@utils/localStorageUtil'
 import { useEffect } from 'react'
+import { useAppSelector } from '@redux/hooks'
+import { selectUserState } from '@redux/slices/userSlice'
 
 const Logo = () => {
     return (
@@ -49,18 +51,18 @@ const LoggedOutUI = () => {
 
 
 const Nav: React.FC = () => {
-    let isUserLoggedIn ;
-    useEffect(()=>{
-        isUserLoggedIn = getUserStateFromLocalStorage();
-    },[isUserLoggedIn]) 
+    console.log(useAppSelector(selectUserState));
+    // useEffect(()=>{
+    //     isUserLoggedIn = getUserStateFromLocalStorage();
+    // },[isUserLoggedIn]) 
      
     return (
         <nav className='flex-between w-full mb-16 pt-3'>
             <Logo/>
-            <div className='sm:flex hidden'>
+            {/* <div className='sm:flex hidden'>
                 {!isUserLoggedIn && <h1>Pagol ?</h1>}
                 {isUserLoggedIn ? <LoggedInUI /> : <LoggedOutUI/>}
-            </div>
+            </div> */}
         </nav>
     );
 }
