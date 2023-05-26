@@ -4,12 +4,12 @@ interface Props {
 }
 
 const DeleteModal: React.FC<Props> = () => {
-    const [showModal, setShowModal] = useState(false);
+    const showModal = false;
     return (
         <>
             <button
                 type="button"
-                onClick={() => setShowModal(true)}
+                // onClick={() => }
             >
                 <TrashIcon className="delete_icon" />
             </button>
@@ -22,7 +22,9 @@ const DeleteModal: React.FC<Props> = () => {
                                 <button data-modal-hide="popup-modal" type="button" className="delete_confirm_button">
                                     Yes, I'm sure
                                 </button>
-                                <button onClick={() => setShowModal(false)} data-modal-hide="popup-modal" type="button" className="delete_reject_button">No, cancel</button>
+                                <button 
+                                // onClick={() => setShowModal(false)}
+                                 data-modal-hide="popup-modal" type="button" className="delete_reject_button">No, cancel</button>
                             </div>
                         </div>
                     </div>

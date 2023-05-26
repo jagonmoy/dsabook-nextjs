@@ -1,8 +1,5 @@
-'use client'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getUserStateFromLocalStorage } from '@utils/localStorageUtil'
-import { useEffect } from 'react'
 
 const Logo = () => {
     return (
@@ -49,19 +46,12 @@ const LoggedOutUI = () => {
 
 
 const Nav: React.FC = () => {
-    let isUserLoggedIn ;
-    useEffect(()=>{
-        isUserLoggedIn = getUserStateFromLocalStorage();
-        console.log("inside use effect")
-        console.log(isUserLoggedIn)
-    },[isUserLoggedIn]) 
-     
     return (
         <nav className='flex-between w-full mb-16 pt-3'>
             <Logo/>
             <div className='sm:flex hidden'>
-                {!isUserLoggedIn && <h1>Pagol ?</h1>}
-                {isUserLoggedIn ? <LoggedInUI /> : <LoggedOutUI/>}
+                <LoggedInUI /> 
+                 {/* <LoggedOutUI/> */}
             </div>
         </nav>
     );

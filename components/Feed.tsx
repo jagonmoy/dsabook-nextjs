@@ -1,15 +1,28 @@
-'use client'
-import { useGetAllBlogsQuery } from '@redux/slices/apiSlice';
-import { Loading } from './Loading';
+// import { Loading } from './Loading';
 import Link from 'next/link';
+import { getAllBlogs } from '@services/blogs';
 interface Props {
 }
 
+const blogs = [
+  {
+    blogHeadline: 'aaaaaa',
+    blogDescription: 'asdasdasd',
+    id: '1'
+  },
+  {
+    blogHeadline: 'aaaaaa',
+    blogDescription: 'asdasdasd',
+    id: '2'
+  },
+  {
+    blogHeadline: 'aaaaaa',
+    blogDescription: 'asdasdasd',
+    id: '3'
+  }
+]
+
 const Feed: React.FC<Props> = () => {
-  const { data : blogs, isLoading, isError, isSuccess } = useGetAllBlogsQuery('/blogs');
-  if (isLoading) return <Loading/>
-  else if (isError) return <h1>Error Loading Page...</h1>
-  else {
     return (
       <section className="flex flex-col items-center">
         { blogs.map((blog : any,index : any) => (
@@ -30,7 +43,6 @@ const Feed: React.FC<Props> = () => {
     ))}
       </section>
     );
-  }
 }
 
 export default Feed;
