@@ -1,7 +1,8 @@
 import Feed from '@components/Feed'
 import Link from 'next/link'
-
+import { getAllBlogs } from '@services/blogs';
 export default async function Home() {
+    const blogs = await getAllBlogs();
     return (
         <section className='w-full flex-center flex-col'>
             <h1 className="head_text text-center">
@@ -17,7 +18,7 @@ export default async function Home() {
                 CREATE A NEW BLOG
             </Link>
             <div>
-            <Feed/>
+            <Feed blogs={blogs}/>
             </div>
             
         </section>

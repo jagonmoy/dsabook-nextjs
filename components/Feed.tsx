@@ -1,28 +1,11 @@
 // import { Loading } from './Loading';
 import Link from 'next/link';
-import { getAllBlogs } from '@services/blogs';
+
 interface Props {
+  blogs: []
 }
 
-const blogs = [
-  {
-    blogHeadline: 'aaaaaa',
-    blogDescription: 'asdasdasd',
-    id: '1'
-  },
-  {
-    blogHeadline: 'aaaaaa',
-    blogDescription: 'asdasdasd',
-    id: '2'
-  },
-  {
-    blogHeadline: 'aaaaaa',
-    blogDescription: 'asdasdasd',
-    id: '3'
-  }
-]
-
-const Feed: React.FC<Props> = () => {
+const Feed: React.FC<Props> = ({blogs}) => {
     return (
       <section className="flex flex-col items-center">
         { blogs.map((blog : any,index : any) => (

@@ -5,7 +5,7 @@ const Logo = () => {
     return (
         <Link href='/' className='flex gap-2 flex-center'>
         <Image
-            src='assets/images/dsabook.svg'
+            src='/assets/images/dsabook.svg'
             alt='logo'
             width={40}
             height={40}
@@ -23,7 +23,7 @@ const LoggedInUI = () => {
 
         <Link href="/profile">
             <Image
-                src='assets/images/profile.svg'
+                src='/assets/images/profile.svg'
                 alt='profile'
                 width={37}
                 height={37}
